@@ -1,0 +1,37 @@
+---------Navigating File System---------
+1. cd --> to change directory
+2. pwd --> to know the current working directory
+3. ls --> to list files/directories
+(Use TAB key to auto-complete)
+
+---------Creating Files & Directories---------
+1. touch --> to create file
+2. cp --> to create file
+3. vi --> to create file
+4. mkdir --> to create directory
+
+---------Copying Directories---------
+1. cp --> to copy directory
+2. cp -R <source_folder> <destination_folder> --> to copy directory recursively
+
+---------Filesystem Color Definition---------
+1. Blue --> Directory
+2. Green --> Executable or recognized data file
+3. Sky Blue --> Symbolic link file
+4. Yellow with black background --> Device
+5. Pink --> Graphic image file
+6. Red --> Archive file(tar)
+7. Red with black background --> Broken link
+
+---------Change Password in Linux---------
+1. sudo su --> login as root
+2. passwd userName --> Change any users password
+3. passwd --> change your own password
+
+### encrypted password is stored in /etc/shadow file.###
+
+---------Reserved Filenames---------
+1. / --> the root directory (slash)
+2. . --> current directory (period)
+3. .. --> parent directory (double period)
+4. ~ --> your home directory (tilde)

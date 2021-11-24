@@ -1,0 +1,192 @@
+---------Linux File Editors---------
+1. vi --> Visual Editor
+2. ed --> Standard Line Editor
+3. ex --> Extended Line Editor
+4. emacs --> A full screen editor
+5. pico --> Beginner's Editor
+6. vim --> Advance version of vi
+
+---------Vi Editor---------
+Most Commmon Keys
+1. i --> insert
+2. Esc --> Escape out of any mode
+3. r --> replace
+4. d --> delete
+5. :q! --> quit without saving
+6. :wq! --> quit and save
+
+---------User Account Management---------
+Commands
+1. useradd --> to create a new user
+2. groupadd --> creates a new group
+3. userdel --> used to delete the user
+4. groupdel --> removes an existing group
+5. usermod --> modify user attributes 
+Files
+1. /etc/passwd --> This file has all user's attributes
+2. /etc/shadow --> This file contains encrypted user password and password policy 
+3. /etc/group --> All group and user group information
+
+---------chage command---------
+The chage command changes the number of days between password changes and the date of the last password change
+chage [-m mindays][-M maxdays][-d lastday][-I inactive][-E expiredate][-W warndays] user
+
+File --> /etc/login.def
+1. PASS_MAX_DAYS 99999
+2. PASS_MIN_DAYS 0
+3. PASS_MIN_LEN  5
+4. PASS_WARN_AGE 7
+
+---------Swictch users and Sudo Access---------
+Commands
+1. su -username
+2. sudo command
+3. visudo --> Run the visudo to edit the /etc/sudoers file. This file defines the policies applied by the sudo command.
+
+File
+/etc/sudoers
+
+---------Monitor Users---------
+1. who
+2. last
+3. w
+4. finger
+5. id
+
+---------Talking to Users---------
+1. users
+2. wall
+3. write
+
+---------System Utility Commands---------
+1. date --> Print or set system date and time (use -s flag to set date and time)
+2. uptime --> tells how long the system has been running
+3. hostname --> shows the system hostname
+4. uname --> gives system information
+5. which --> shows the full path of (shell) commands
+6. cal --> calendar
+7. bc --> calculator
+
+---------Types of Process and Jobs---------
+1. Application == Service
+2. Script
+3. Process
+4. Daemon
+5. Threads
+6. Job
+
+---------Process/Service Commands---------
+1. systemctl or service
+2. ps
+3. top
+4. kill
+5. crontab
+6. at.
+
+---------systemctl command---------
+systemctl command is a new tool to control system services.
+$ systemctl start|stop|status servicename.service
+$ systemctl enable servicename.service
+$ systemctl restart|reload servicename.service
+$ systemctl list-units --all
+To add a service under systemctl management:
+	create a unit file in /etc/systemd/system/servicename.service
+To control system with systemctl:
+$ systemctl poweroff
+$ systemctl halt
+$ systemctl reboot
+
+---------ps command---------
+ps command stands for process status and displays all the currently running process in the Linux system.
+$ ps --> shows the process of the current shell
+$ ps -e --> shows all running processes
+$ ps aux --> shows all running processes in BSD format
+$ ps -ef --> shows all running processes in full format listing
+$ ps -u username --> shows all the processes by username
+
+---------top command---------
+top command is used to show the Linux processes and it provides a real-time view of the running system.
+when the top command is executed then it goes into interactive mode and you can exit out by hitting q
+$ top -u userName --> shows task/process by user owned
+$ top then press c --> shows command absolute path
+$ top then press k --> kill a process by PID within top session
+$ top then M and P --> To sort all running processes by Memory Usuage
+**** Top Command  refreshes the information every 3 seconds ****
+
+---------kill command---------
+kill command is used to terminate process manually
+### kill [OPTION] [PID]
+OPTION --> Signal Name or signal number/ID
+PID --> Process ID
+$ kill -l --> to get a list of all signal names or signal number
+$ kill PID --> Kill a process with default signal
+$ kill -1 --> Restart
+$ kill -2 --> Interrupt from the Keyboard just like Ctrl C
+$ kill -9 --> Forcefully kill the process
+$ kill -15 --> kill a process gracefully
+
+other similar kill commands:
+$ killall
+$ pkill
+
+---------crontab command---------
+Crontab command is used to schedule tasks
+$ crontab -e --> Edit the crontab
+$ crontab -l --> List the crontab entries
+$ crontab -r --> Remove the crontab
+$ crond --> crontab daemon/service that manages scheduling
+$ systemctl status crond --> To manage the crond service
+
+---------System Monitoring---------
+1. top
+2. df
+3. dmesg
+4. iostat 1
+5. netstat
+6. free
+7. cat /proc/cpuinfo
+8. cat /proc/meminfo
+
+---------Log Monitoring---------
+Log Directory = /var/log
+1. boot
+2. chronyd = NTP
+3. cron
+4. maillog
+5. secure
+6. messages
+7. httpd
+
+---------System Maintenance Commands---------
+1. shutdown
+2. init 0-7
+3. reboot
+4. halt
+
+---------Changing System Hostname---------
+1. hostnamectl - set-hostname newhostname
+2. Version 7 = Edit /etc/hostname
+3. Version 6 = Edit /etc/sysconfig/network
+
+---------Finding System Information---------
+1. cat /etc/os-release
+2. uname -a
+3. dmidecode
+
+---------Terminal Control Keys---------
+1. Ctrl+u --> erase everything that you've typed on command line
+2. Ctrl+c --> stop/kill a command
+3. Ctrl+z --> suspend a command
+4. Ctrl+d --> exit from a interactive program
+
+--------- Environment Variables---------
+$ printenv OR env --> to view all environment variables
+$ echo $SHELL --> to view ONE environment variable
+$ export TEST=1
+  echo $TEST --> to set the environment variable
+$ vi .bashrc
+  TEST='123'
+  export TEST --> To set environment variable permanently
+$ vi /etc/profile or /etc/bashrc
+  Test='123'
+  export TEST --> to set global environment variable permanently

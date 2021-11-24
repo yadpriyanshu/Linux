@@ -1,0 +1,88 @@
+---------Help Commands---------
+1. whatis
+2. --help
+3. man
+
+---------File Permission---------
+There are 3 types of permissions.
+1. r - read
+2. w - write
+3. x - execute
+
+Each permission(rwx) can be controlled at three levels.
+1. u - user --> yourself
+2. g - group --> can be people in the same project.
+3. o - other --> everyone on the system.
+
+File or directory permission can be displayed by running the ls -l command.
+$-: -rwxrwxrwx
+
+Command to change permission
+$ chmod
+
+Permission using numeric mode
+ 
+Number			Permission Type 			Symbol
+0				No Permission				 ---
+1				Execute						 --x
+2				Write						 -w-
+3				Execute+Write				 -wx
+4				Read						 r--
+5				Read+Execute				 r-x
+6				Read+Write					 rw-
+7				Read+Write+Execute			 rwx
+
+$ chmod 764 FILE 
+user --> rwx
+group --> rw-
+other --> r-- 
+
+
+---------File Maintenance Commands---------
+1. cp --> Copies files. Will overwrite unless otherwise specified. Must also have write permission in the destination directory
+2. rm --> Delete/removes files or directories if file permission permit
+3. mv --> Moves files. Will overwrite unless otherwise specified. Must also have write permission in the destination directory
+4. mkdir --> Make directory. Will create the new directory in your working directory by default.
+5. rmdir --> Remove directory. Directories must be empty before you remove them.
+6. rm -r --> To recursively remove nested directories, use the rm command with the -r option.
+7. chgrp --> To change group ownership of a file or directory
+8. chown --> To change the ownership of a file or directory
+9. chmod --> change access permissions, change mode.
+
+---------File Display Commands---------
+1. cat --> concatenate a file
+2. more --> Browses/displays files one screen at a time.
+3. less --> Browses/displays files one page at a time.
+4. head --> displays the head, or start, of the file.
+5. tail --> displays the tail, or end, of the file.
+
+---------Filters/Text Processors Commands---------
+1. cut
+2. awk
+3. grep and egrep --> search for a word/string in a file
+4. sort
+5. uniq
+6. wc
+
+---------Compare Files---------
+1. diff (Line by Line)
+2. cmp  (Byte by Byte)
+
+---------Compress and un-compress Files---------
+1. tar
+2. gzip
+3. gzip -d or gunzip
+
+---------Truncate File Size---------
+The Linux truncate command is often used to shrink or extend the size of a file to the specified size.
+command -: truncate -s 10 fileName
+
+---------Pipes---------
+A pipe is used by the shell to connect the stdout of one command directly to the stdin of another command.
+The symbol of pipe is the vertical bar ( | )
+ex-: ls -al | more 
+
+---------Finding System Information---------
+1. uname -a  --> determines the details like kernel name, version, hostname, etc.
+2. cat /etc/os-release --> gives information of os-release
+3. dmidecode --> to find information about hardware of the system.

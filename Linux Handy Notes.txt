@@ -1,0 +1,77 @@
+1. Basics While Working With text:
+
+Ctrl + A → Move the cursor to the beginning of a line
+Ctrl + E → Move the cursor to the end of a line
+Ctrl + ⬅️ → Move the cursor to the left of a word
+Ctrl + ➡️ → Move the cursor to the right of a word
+Ctrl + U → Remove(crop) from the cursor to the start of the line
+Ctrl + K → Remove(crop) from the cursor to the end of the line
+Ctrl + Y → Paste cropped text
+Ctrl + Shift + C → Copy to clipboard
+Ctrl + Shift + P → Paste to clipboard
+
+2. Commands Related to Files and Folders:
+~ → Indicates the home directory
+. → Indicates the current directory
+cd → Change directory
+cd .. → Move one directory back
+cd ../../ → Move to two directories back
+cd → Directly go to the home directory
+mkdir folderName → Create a folder
+rmdir folderName → Remove an empty folder
+cp file1 file2 → Copy content of file1 to file2
+mv ./file1 ../ → Move file1 to one directory back
+rm file1.txt → Remove file1
+rm -r ../dummy → Remove all files from the directory dummy recursively.
+
+3. Hard and Soft Links:
+ln -s file1.txt file2.txt → This creates a soft link file2.txt which refers to file1.txt
+Note: Soft link breaks if the source or linked file is moved.
+
+ln file1.txt file2.txt → This creates a hard link file2.txt which refers to file1.txt
+Note: Hard link works even if the source or linked file is moved.
+
+4. pipe, head, tail, less:
+
+1. pipe(|):
+pipe(|) is a connection between commands or it is used to pass the result of one command to another command.
+cat file.txt → Concatenate or display the file content.
+cat file.txt | wc → Outputs → [No of lines, No of words, No of Chars] in the file.txt
+echo “hello” | wc → Outputs [1 1 6] → [One line, One word, 6 Chars]
+
+2. head:
+head file.txt → Display first 10 lines of file.txt
+head -n5 file.txt → Display first 5 lines of file.txt
+
+3. tail:
+tail file.txt → Display last 10 lines of file.txt
+cat file.txt | tail -n5 | cat -n → This displays the last 5 lines numbered as 1,2,3,4,5
+
+4. less:
+less → The less command provides a minimal interface within which we can move around a file. Basically displays the content of file on-screen page by page.
+
+
+5. Searching:
+grep -n “the” file1.txt → Search for the string “the” in file.txt with numbered line
+
+
+6. Tar and Zip:
+About TAR
+A tar file is a tape archive file, which means many files are collected into one file. Compression of tar file is an option. This tar file is used for sharing software or other content.
+Compressed formats for tar files are .tar.gz and .tgz
+tar cvf file.tar folderName → Include all the files of folderName to file.tar
+c →Create an archive file
+v →Verbose (list all files in the archive)
+f →Output archive to a file
+tar xf file.tar → Extracts file.tar
+x → indicates the extract
+About ZIP
+zip -r file.zip folderName → Creates a zip file named file.zip that includes all files of the folder folderName
+unzip -r file.zip → Unzip file.zip file
+
+7. RAM and Disk Info:
+
+free -h → Outputs RAM info
+cat /proc/cpuinfo → Outputs CPU info
+df -h → Outputs Disk info
+ip a → Outputs IP info
