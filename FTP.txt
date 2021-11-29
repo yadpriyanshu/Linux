@@ -1,0 +1,40 @@
+FTP (File Transfer Protocol) is a standard network protocol used for the transfer of computer files between a client and server on a computer network.
+Protocol --> Set of rules used by computers to communicate
+Default FTP Port = 21 
+
+-----Install and Configure FTP on remote server-----
+# Become root
+# rpm -qa | grep ftp
+# ping www.google.com
+# yum install vsftpd
+# vi /etc/vsftpd/vsftpd.conf  (make a copy first)
+find the following lines and make certain changes
+### Disable anonymous login###
+	anonymous_enable=NO
+###Uncomment###
+	ascii_upload_enable=YES
+	ascii_download_enable=YES
+###Uncomment-Enter your Welcome Message - This is optional###
+	ftpd_banner=Welcome to UNIX FTP Services.
+###Add at the end of this file###
+	use_localtime=YES
+
+$ systemctl start vsftpd
+$ systemctl enable vsftpd
+$ systemctl stop firewalld
+$ systemctl disable firewalld
+$ useradd userName (if User doesn't exist)
+
+-----Install FTP client on the client server-----
+# Become root
+# yum install ftp
+# su - userName
+$ touch fileName
+
+-----Commands to transfer file to the FTP server-----
+$ ftp 192.168.1.x
+$ Enter userName and password
+$ bi
+$ hash
+$ put fileName
+$ bye

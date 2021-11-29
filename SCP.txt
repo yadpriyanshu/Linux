@@ -1,0 +1,15 @@
+SCP (Secure Copy Protocol) helps to transfer computer files securely from a local to a remote host.
+It is similar to FTP but it adds security and authentication.
+Default SCP Port = 22(same as SSH)
+
+-----transfer file from local server to remote server-----
+# Login as yourself 
+# touch fileName
+$ scp fileName userName@192.168.1.x:/remote/directory/
+# Enter userName and Password
+
+-----transfer file from remote server to local server-----
+$ scp userName@192.168.1.x:file.txt /local/directory/
+
+*** If you want to copy directory from local to remote server or vice-versa, use scp -r .
+
